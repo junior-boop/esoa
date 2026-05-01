@@ -1,0 +1,34 @@
+---
+import { Banniere } from "../components/Banniere";
+import Navbar from "../components/Navbar.astro";
+import { ResumeSection } from "../components/Resume";
+import { ActionSection } from "../components/Action";
+import Layout from "../layouts/Layout.astro";
+import { EventsSection } from "../components/Events";
+import Container from "../components/Container.astro";
+import { Hero } from "../components/Hero";
+
+import { StatsSection } from "../components/Events";
+import coachImg from "../assets/image/about_hero.png";
+import { GallerySection } from "../components/Gallery";
+import { ActionCarousel } from "../components/ActionCarousel";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Navbar />
+  <Hero client:load />
+  <StatsSection imageStatSrc={coachImg.src} client:load />
+  <!-- <ActionCarousel client:load /> -->
+  <GallerySection client:load />
+  <ResumeSection client:load />
+  <Banniere client:load />
+  <ActionSection client:load />
+  <section class='py-[72px]'>
+    <Container>
+      <h2 class='text-4xl font-bold mb-12'>Nos évènements</h2>
+      <EventsSection client:load />
+    </Container>
+  </section>
+  <Footer />
+</Layout>

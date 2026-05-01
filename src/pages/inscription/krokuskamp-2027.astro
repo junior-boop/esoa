@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { KrokuskampForm } from "../../components/KrokuskampForm";
+---
+
+<Layout>
+  <Navbar />
+  <KrokuskampForm client:load />
+  <Footer />
+</Layout>

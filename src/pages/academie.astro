@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { PassionScroll } from "../components/PassionScroll";
+import { TextImageBlock } from "../components/TextImageBlock";
+import QuoteBlock from "../components/QuoteBlock.astro";
+import { HeroHeader } from "../components/HeroHeader";
+import heroImg from "../assets/image/about_hero.png";
+import img1 from "../assets/image/image-import-11.jpg";
+import img2 from "../assets/image/image-import-25.jpg";
+import { ActionSection } from "../components/Action";
+import { EventsSection } from "../components/Events";
+import Container from "../components/Container.astro";
+---
+
+<Layout>
+  <Navbar />
+  <HeroHeader
+    client:load
+    label='ESOA Brussels'
+    title='Académie'
+    imageSrc={img1.src}
+    imageAlt='ESOA Brussels académie'
+  />
+  <!-- Texte gauche, image droite -->
+  <TextImageBlock
+    client:load
+    label='Notre philosophie'
+    title={"Notre vision\ndu football"}
+    imageSrc={img1.src}
+    imageAlt='Football académie'
+    paragraphs={[
+      "L'académie ESOA Brussels est née d'une conviction simple : chaque jeune talent mérite un encadrement de haut niveau, quelle que soit son origine. Nos entraîneurs certifiés accompagnent chaque joueur dans sa progression technique, mentale et collective.",
+      "Nos séances combinent des exercices spécifiques élite, des sessions vidéo et un suivi personnalisé pour révéler le plein potentiel de chaque joueur. Rejoignez une structure qui place l'humain au cœur du développement sportif.",
+    ]}
+  />
+
+  <QuoteBlock
+    quote='"Le football ne forge pas seulement des joueurs — il forge des caractères, des leaders et des hommes."'
+    author='ESOA Brussels'
+  />
+
+  <!-- Image gauche, texte droite -->
+  <TextImageBlock
+    client:load
+    label='Rejoignez-nous'
+    title={"Faire partie\nde l'aventure"}
+    imageSrc={img2.src}
+    imageAlt='Joueurs ESOA'
+    reverse={true}
+    paragraphs={[
+      "ESOA Brussels, c'est bien plus qu'une académie de football. C'est une communauté de joueurs, parents et entraîneurs qui partagent la même passion et les mêmes ambitions.",
+      "Tournois internationaux, stages de formation, matchs amicaux — chaque événement est une opportunité de grandir ensemble et de vivre des moments inoubliables sur et en dehors du terrain.",
+    ]}
+  />
+
+  <PassionScroll client:load />
+  <section class='bg-[#EFF2F6] py-16 px-4 sm:px-6'>
+    <div class='max-w-287.5 mx-auto flex flex-col gap-6'>
+      <!-- Label -->
+      <div class='flex items-center gap-2.5'>
+        <!-- Actions sociales icon -->
+        <svg
+          class='h-[67px] w-[67px]'
+          viewBox='0 0 87 87'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M63.8037 11.8129L65.25 13.5936L66.6964 11.8101C67.5376 10.777 68.5788 9.92437 69.7574 9.30324C70.936 8.6821 72.2279 8.30528 73.5556 8.19534C74.8834 8.08541 76.2197 8.24462 77.4844 8.66345C78.7491 9.08227 79.9163 9.75209 80.916 10.6328C81.9157 11.5135 82.7273 12.5869 83.3023 13.7887C83.8772 14.9906 84.2036 16.2961 84.262 17.6271C84.3203 18.9581 84.1094 20.2872 83.6418 21.5347C83.1742 22.7823 82.4596 23.9226 81.5408 24.8873L67.077 40.0117C66.841 40.258 66.5576 40.4541 66.2439 40.588C65.9301 40.7219 65.5925 40.7909 65.2514 40.7909C64.9103 40.7909 64.5727 40.7219 64.2589 40.588C63.9452 40.4541 63.6618 40.258 63.4258 40.0117L48.9647 24.8737C48.0458 23.9097 47.3311 22.77 46.8634 21.523C46.3956 20.276 46.1846 18.9474 46.2429 17.6168C46.3011 16.2863 46.6275 14.9812 47.2024 13.7798C47.7774 12.5785 48.589 11.5056 49.5886 10.6256C50.5883 9.74554 51.7554 9.07646 53.0199 8.65846C54.2845 8.24046 55.6204 8.08215 56.9476 8.19303C58.2748 8.3039 59.566 8.68167 60.7436 9.30369C61.9213 9.92571 62.9612 10.7792 63.8009 11.8129M41.9177 13.6888L41.3522 13.1151C40.5118 12.2594 39.4788 11.6172 38.3395 11.2423C37.2002 10.8674 35.9877 10.7706 34.8033 10.9601C33.619 11.1496 32.4972 11.6198 31.5317 12.3315C30.5663 13.0432 29.7852 13.9756 29.2538 15.0509C28.359 14.5936 27.3818 14.3199 26.3797 14.2461C25.3775 14.1722 24.3707 14.2997 23.4186 14.621C22.4665 14.9422 21.5883 15.4508 20.8357 16.1167C20.0832 16.7826 19.4715 17.5923 19.0367 18.4983C17.5378 17.7864 15.8373 17.6201 14.2289 18.0282C12.6205 18.4363 11.205 19.3932 10.2268 20.7337C9.24866 22.0741 8.76916 23.714 8.87113 25.3703C8.97309 27.0265 9.65011 28.5952 10.7853 29.8056L11.9653 31.0616C10.9884 31.599 10.1467 32.3518 9.50414 33.2629C8.86159 34.1741 8.43503 35.2196 8.25684 36.3202C8.07864 37.4208 8.1535 38.5476 8.47572 39.6149C8.79794 40.6823 9.35907 41.6622 10.1165 42.4804L24.1425 57.5966C20.9698 58.3144 16.8672 60.0435 14.3333 64.2032C13.1153 66.2042 13.5014 68.3737 14.6405 69.8799C15.7117 71.2991 17.449 72.1909 19.2977 72.2724C27.8699 72.6422 38.2311 75.7742 46.9963 79.9937C53.1543 82.9544 61.0659 81.8207 65.4403 76.0352L70.6604 69.1296C71.952 67.4208 72.8215 65.431 73.198 63.3224C73.5746 61.2137 73.4475 59.046 72.8272 56.9958L69.2466 45.1611C67.6064 46.0831 65.6979 46.4096 63.8444 46.0854L63.8635 46.1425L67.6235 58.5672C67.9964 59.7984 68.0728 61.1003 67.8465 62.3666C67.6201 63.6329 67.0975 64.8277 66.3212 65.8535L61.1012 72.7564C58.5347 76.1494 53.5703 77.12 49.3562 75.0918C40.1533 70.6656 29.058 67.2509 19.5315 66.8404C19.4023 66.8375 19.2755 66.804 19.1618 66.7425C20.6517 64.5213 23.036 63.4147 25.3769 62.8927C26.787 62.5861 28.2307 62.4619 29.6725 62.523H29.6779C30.2245 62.5686 30.772 62.4479 31.2487 62.1767C31.7254 61.9054 32.1089 61.4964 32.3489 61.0032C32.5888 60.5101 32.674 59.9558 32.5933 59.4134C32.5125 58.8709 32.2696 58.3655 31.8964 57.9636L14.1104 38.7801C13.801 38.4453 13.6227 38.0102 13.6082 37.5545C13.5936 37.0988 13.7439 36.6532 14.0313 36.2994C14.3188 35.9455 14.7241 35.7071 15.1731 35.628C15.6221 35.5488 16.0845 35.6342 16.4757 35.8684L27.9243 48.081C28.4168 48.6084 29.0986 48.9187 29.8198 48.9434C30.541 48.9681 31.2425 48.7053 31.77 48.2128C32.2974 47.7204 32.6077 47.0385 32.6324 46.3173C32.6571 45.5961 32.3943 44.8946 31.9019 44.3672L20.8692 32.4998C20.626 32.2412 20.3663 31.9987 20.0916 31.7739L14.7547 26.0863C14.4645 25.7617 14.3112 25.3374 14.3269 24.9023C14.3425 24.4672 14.5259 24.055 14.8387 23.7521C15.1514 23.4492 15.5693 23.279 16.0047 23.2773C16.44 23.2756 16.8592 23.4423 17.1744 23.7427L33.4216 39.9873C33.6742 40.2397 33.9741 40.4399 34.304 40.5764C34.634 40.713 34.9876 40.7832 35.3448 40.7831C35.7019 40.7829 36.0554 40.7125 36.3853 40.5757C36.7152 40.4389 37.0149 40.2385 37.2673 39.9859C37.5197 39.7333 37.7199 39.4335 37.8565 39.1035C37.993 38.7735 38.0632 38.4199 38.0631 38.0628C38.063 37.7057 37.9925 37.3521 37.8557 37.0222C37.719 36.6924 37.5185 36.3927 37.2659 36.1402L24.3519 23.2262C24.1435 23.0359 23.9759 22.8054 23.8591 22.5485C23.7423 22.2916 23.6788 22.0138 23.6724 21.7317C23.666 21.4496 23.7169 21.1691 23.8219 20.9072C23.9269 20.6453 24.0839 20.4074 24.2835 20.2079C24.483 20.0084 24.7209 19.8514 24.9828 19.7463C25.2447 19.6413 25.5251 19.5905 25.8072 19.5969C26.0893 19.6033 26.3672 19.6668 26.6241 19.7836C26.8809 19.9003 27.1115 20.068 27.3017 20.2763L30.2489 23.2235C30.3866 23.3866 30.5334 23.5461 30.6893 23.702L41.5779 34.5525L41.6241 34.5987L44.2939 37.2685C44.8041 37.7783 45.4958 38.0646 46.217 38.0643C46.9382 38.0641 47.6298 37.7773 48.1396 37.2672C48.6494 36.757 48.9356 36.0652 48.9354 35.344C48.9351 34.6228 48.6484 33.9313 48.1382 33.4215L34.3107 19.5966C34.0042 19.1719 33.8695 18.6469 33.9336 18.1271C33.9977 17.6072 34.2559 17.1307 34.6564 16.7931C35.0569 16.4555 35.5702 16.2817 36.0934 16.3065C36.6167 16.3313 37.1112 16.5529 37.478 16.9268L41.8008 21.3312C41.1843 18.8165 41.2264 16.1852 41.9232 13.6915M44.0356 59.7607C47.1404 59.1409 49.7124 59.1898 51.8684 59.8613C53.9835 60.522 55.9057 61.8487 57.6457 64.1651C57.858 64.4562 58.126 64.7022 58.4341 64.8888C58.7423 65.0754 59.0845 65.1989 59.4408 65.2521C59.7971 65.3054 60.1604 65.2872 60.5097 65.1988C60.8589 65.1104 61.1871 64.9534 61.4752 64.7371C61.7632 64.5207 62.0054 64.2493 62.1877 63.9385C62.3699 63.6277 62.4885 63.2838 62.5367 62.9268C62.5849 62.5698 62.5616 62.2067 62.4683 61.8588C62.375 61.5108 62.2134 61.1849 61.993 60.8999C59.6494 57.7824 56.8156 55.7062 53.4914 54.6712C50.2099 53.6463 46.6619 53.6925 42.9699 54.4265C42.6196 54.4965 42.2866 54.6348 41.9898 54.8335C41.693 55.0322 41.4382 55.2874 41.24 55.5845C41.0419 55.8817 40.9041 56.2149 40.8348 56.5653C40.7654 56.9157 40.7657 57.2763 40.8357 57.6265C40.9056 57.9768 41.0439 58.3098 41.2426 58.6066C41.4413 58.9034 41.6965 59.1582 41.9936 59.3564C42.2908 59.5545 42.6241 59.6923 42.9744 59.7616C43.3248 59.831 43.6854 59.8307 44.0356 59.7607Z'
+            fill='black'></path>
+        </svg>
+
+        <span
+          class='bebas-neue-regular text-[32px] lg:text-[64px] font-semibold uppercase text-black'>
+          Actions sociales
+        </span>
+      </div>
+
+      <!-- Card -->
+      <div
+        class='relative w-full rounded-2xl overflow-hidden'
+        style='height: clamp(360px, 45vw, 520px)'>
+        <!-- Background image -->
+        <img
+          src={heroImg.src}
+          alt='Une académie, une communauté'
+          class='absolute inset-0 w-full h-full object-cover object-center'
+        />
+
+        <!-- Gradient overlay left → transparent -->
+        <div
+          class='absolute inset-0'
+          style='background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.05) 100%)'>
+        </div>
+
+        <!-- Text content -->
+        <div class='absolute inset-0 flex flex-col justify-end p-8 sm:p-10'>
+          <h2
+            class='bebas-neue-regular text-white leading-none mb-3'
+            style='font-size: clamp(3rem, 5vw, 6rem)'>
+            Une académie,<br />une communauté
+          </h2>
+          <p
+            class='inter text-white/75 text-base sm:text-xl max-w-md leading-relaxed'>
+            Joueurs, parents, entraîneurs — nous avançons ensemble. Suivez notre
+            quotidien, célébrez nos victoires et faites partie de l'aventure sur
+            nos réseaux sociaux.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <ActionSection client:load />
+  <section class='py-[72px]'>
+    <Container>
+      <h2 class='text-4xl font-bold mb-12'>Nos évènements</h2>
+      <EventsSection client:load />
+    </Container>
+  </section>
+  <Footer />
+</Layout>

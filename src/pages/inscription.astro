@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+// ── Ajoutez vos fiches d'inscription ici ──────────────────────────────────
+const fiches = [
+  {
+    label: "Inscription Saison 2026–2027",
+    description: "570 € / an · U5–U16 · Lundi, Mercredi, Vendredi · ESOA Ninove",
+    href: "/inscription/ninove-saison-2026-2027",
+    tag: "ESOA Ninove",
+  },
+  {
+    label: "U15 – U17",
+    description: "Module U15–U17 · Entraînement les dimanches · via talent test",
+    href: "/inscription/u15-u17",
+    tag: "ESOA Elite 2026–2027",
+  },
+  {
+    label: "U12 – U14",
+    description: "Module U12–U14 · Max 15 joueurs · Entraînement les dimanches · via talent test",
+    href: "/inscription/u12-u14",
+    tag: "ESOA Elite 2026–2027",
+  },
+  {
+    label: "U9 – U11",
+    description: "Module U9–U11 · Max 15 joueurs · Entraînement les dimanches · via talent test",
+    href: "/inscription/u9-u11",
+    tag: "ESOA Elite 2026–2027",
+  },
+  {
+    label: "Stage de Carnaval 2027",
+    description: "100 € / semaine · Semaines du 22/02 et 01/03/2027 · U9–U14+",
+    href: "/inscription/stage-carnaval-2027",
+    tag: "ESOA Brussels",
+  },
+  {
+    label: "Voetbal Krokuskamp 2027",
+    description: "100 € / semaine · Van 08/02 tot 12/02/2027 · U8–U14+",
+    href: "/inscription/krokuskamp-2027",
+    tag: "ESOA Ninove",
+  },
+];
+// ──────────────────────────────────────────────────────────────────────────
+---
+
+<Layout>
+  <Navbar />
+
+  <section class='min-h-screen bg-[#EFF2F6] py-16 px-4 sm:px-6'>
+    <div class='max-w-2xl mx-auto'>
+      <!-- Header -->
+      <div class='mb-12'>
+        <p
+          class='inter text-sm font-semibold text-orange-500 uppercase tracking-widest mb-2'>
+          ESOA Brussels
+        </p>
+        <h1
+          class='bebas-neue-regular text-5xl sm:text-6xl text-black'
+          style='line-height:1'>
+          Fiches<br />d'inscription
+        </h1>
+        <p class='inter text-black/50 mt-4 text-sm'>
+          Sélectionnez le formulaire correspondant à votre programme.
+        </p>
+      </div>
+
+      <!-- Liste des fiches -->
+      <ul class='flex flex-col gap-4'>
+        {
+          fiches.map((fiche) => (
+            <li>
+              <a
+                href={fiche.href}
+                class='fiche-card group flex items-center justify-between gap-4 bg-white rounded-2xl px-6 py-5 border border-black/8 hover:border-orange-400 transition-all'>
+                <div class='flex flex-col gap-1'>
+                  <span class='inter text-xs font-semibold text-orange-500 uppercase tracking-wider'>
+                    {fiche.tag}
+                  </span>
+                  <span class='inter font-bold text-black text-base group-hover:text-orange-500 transition-colors'>
+                    {fiche.label}
+                  </span>
+                  <span class='inter text-sm text-black/50'>
+                    {fiche.description}
+                  </span>
+                </div>
+                <div class='shrink-0 w-10 h-10 rounded-full border border-black/15 group-hover:border-orange-400 group-hover:bg-orange-500 flex items-center justify-center transition-all'>
+                  <svg
+                    width='16'
+                    height='16'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='2.2'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    class='text-black group-hover:text-white transition-colors'>
+                    <polyline points='9 18 15 12 9 6' />
+                  </svg>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .fiche-card {
+    text-decoration: none;
+  }
+</style>

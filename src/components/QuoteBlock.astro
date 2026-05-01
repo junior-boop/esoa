@@ -1,0 +1,43 @@
+---
+interface Props {
+  quote: string;
+  author?: string;
+}
+const { quote, author } = Astro.props;
+---
+
+<section class='w-full bg-[#EFF2F6] py-16 px-6 sm:px-10'>
+  <div class='max-w-287.5 mx-auto flex flex-col items-center text-center gap-6'>
+
+    <!-- Guillemet décoratif -->
+    <svg
+      width='48'
+      height='36'
+      viewBox='0 0 48 36'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      aria-hidden='true'>
+      <path
+        d='M0 36V22.08C0 17.28 1.12 12.96 3.36 9.12C5.6 5.28 9.28 2.08 14.4 0L17.76 4.32C14.56 5.76 12.16 7.68 10.56 10.08C8.96 12.48 8.16 15.36 8.16 18.72H16.32V36H0ZM28.8 36V22.08C28.8 17.28 29.92 12.96 32.16 9.12C34.4 5.28 38.08 2.08 43.2 0L46.56 4.32C43.36 5.76 40.96 7.68 39.36 10.08C37.76 12.48 36.96 15.36 36.96 18.72H45.12V36H28.8Z'
+        fill='black'
+        fill-opacity='0.08'></path>
+    </svg>
+
+    <!-- Citation -->
+    <blockquote
+      class='cormorant-bold-italic text-black leading-snug max-w-3xl'
+      style='font-size: clamp(1.75rem, 4vw, 3rem)'>
+      {quote}
+    </blockquote>
+
+    <!-- Auteur optionnel -->
+    {
+      author && (
+        <p class='inter text-sm font-semibold text-orange-500 uppercase tracking-widest'>
+          — {author}
+        </p>
+      )
+    }
+
+  </div>
+</section>

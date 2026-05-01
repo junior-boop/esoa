@@ -1,0 +1,19 @@
+compatibility_date = "2026-04-04"
+compatibility_flags = ["global_fetch_strictly_public"]
+name = "esoa"
+main = "@astrojs/cloudflare/entrypoints/server"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "esoa-bruselles-db"
+database_id = "ef50910e-40eb-4b78-bd52-04c16e1c965e"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "esoa-bruselles-media"
+
+[vars]
+ADMIN_PASSWORD = "admin1234"

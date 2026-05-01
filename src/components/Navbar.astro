@@ -1,0 +1,195 @@
+---
+import Container from "./Container.astro";
+import icons from "../assets/icons.svg";
+---
+
+<nav class='nav-bar'>
+  <Container class='h-16'>
+    <div class='flex items-center justify-between h-full relative'>
+      <!-- Liens gauche — desktop uniquement -->
+      <div class='hidden lg:flex items-center gap-6 h-full'>
+        <a href='/academie'>À propos</a>
+        <a href='/centres'>Événements</a>
+      </div>
+
+      <!-- Logo centré -->
+      <a
+        href='/'
+        class='absolute top-2.5 left-8 lg:left-1/2 transform -translate-x-1/2'>
+        <img src={icons.src} alt='Logo ESOA' class='w-15.5' />
+      </a>
+
+      <!-- Liens droite — desktop uniquement -->
+      <div class='hidden lg:flex items-center gap-6 h-full'>
+        <a href='/inscription' class='nav-cta'>Inscriptions</a>
+        <a href='#'>Contact</a>
+      </div>
+
+      <!-- Bouton hamburger — mobile uniquement -->
+      <button
+        id='btn-menu'
+        class='lg:hidden ml-auto flex items-center justify-center h-11 w-11 rounded-xl bg-black text-white'
+        aria-label='Ouvrir le menu'>
+        <!-- Icône hamburger -->
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='22'
+          height='22'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'>
+          <line x1='3' y1='6' x2='21' y2='6'></line>
+          <line x1='3' y1='12' x2='21' y2='12'></line>
+          <line x1='3' y1='18' x2='21' y2='18'></line>
+        </svg>
+      </button>
+    </div>
+  </Container>
+</nav>
+
+<!-- Menu mobile — panneau latéral -->
+<div
+  id='mobile-menu'
+  class='fixed top-0 -right-full w-screen h-dvh bg-black z-50 flex flex-col justify-between transition-[right] duration-300 ease-in-out lg:hidden'>
+  <!-- Haut : fermeture + liens -->
+  <div>
+    <div class='px-6 pt-6 pb-4 flex justify-end'>
+      <button
+        id='btn-close-menu'
+        class='text-white text-3xl leading-none'
+        aria-label='Fermer le menu'>✕</button
+      >
+    </div>
+
+    <nav>
+      <ul class='flex flex-col px-6 list-none gap-0'>
+        <span class='w-full border-t border-white/20'></span>
+
+        <li>
+          <a href='/academie' class='mobile-link'>À Propos</a>
+        </li>
+        <span class='w-full border-t border-white/20'></span>
+
+        <li>
+          <a href='/centres' class='mobile-link'>Événements</a>
+        </li>
+        <span class='w-full border-t border-white/20'></span>
+
+        <li>
+          <a href='/actualites' class='mobile-link'>Actualités</a>
+        </li>
+        <span class='w-full border-t border-white/20'></span>
+
+        <li>
+          <a href='/contact' class='mobile-link'>Contact</a>
+        </li>
+        <span class='w-full border-t border-white/20'></span>
+
+        <li class='pt-6'>
+          <a href='/inscription' class='nav-cta-mobile'
+            >Démarrer mon inscription</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Bas : logo -->
+  <div class='px-6 pb-8 flex items-center justify-center'>
+    <a href='/'>
+      <img src={icons.src} alt='Logo ESOA' class='w-16 opacity-80' />
+    </a>
+  </div>
+</div>
+
+<!-- Overlay sombre derrière le menu -->
+<div id='menu-overlay' class='fixed inset-0 bg-black/50 z-40 hidden lg:hidden'>
+</div>
+
+<script>
+  const btnMenu = document.getElementById("btn-menu");
+  const btnClose = document.getElementById("btn-close-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("menu-overlay");
+
+  function openMenu() {
+    mobileMenu?.style.setProperty("right", "0");
+    overlay?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    mobileMenu?.style.setProperty("right", "-100%");
+    overlay?.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  btnMenu?.addEventListener("click", openMenu);
+  btnClose?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+</script>
+
+<style>
+  .nav-bar {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(50px);
+    border-bottom: 1px solid white;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-cta {
+    padding: 8px 16px;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: #333;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 18px 8px;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .mobile-link:hover {
+    color: #f97316;
+  }
+
+  .nav-cta-mobile {
+    display: block;
+    text-align: center;
+    padding: 16px 24px;
+    background: #f97316;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta-mobile:hover {
+    background: #ea6c10;
+  }
+</style>

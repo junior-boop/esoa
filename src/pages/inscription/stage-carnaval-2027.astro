@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { StageCarnavalForm } from "../../components/StageCarnavalForm";
+---
+
+<Layout>
+  <Navbar />
+  <StageCarnavalForm client:load />
+  <Footer />
+</Layout>
